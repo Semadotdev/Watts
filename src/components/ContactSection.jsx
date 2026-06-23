@@ -13,11 +13,13 @@ export default function ContactSection() {
     setLoading(true)
     setError('')
 
+    const data = Object.fromEntries(new FormData(formRef.current))
+
     try {
-      const res = await fetch('/', {
+      const res = await fetch('/.netlify/functions/send-email', {
         method: 'POST',
-        body: new URLSearchParams(new FormData(formRef.current)),
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' },
       })
       if (res.ok) {
         setSubmitted(true)
@@ -25,8 +27,7 @@ export default function ContactSection() {
         setError('Something went wrong. Please try again.')
       }
     } catch {
-      await new Promise((r) => setTimeout(r, 1500))
-      setSubmitted(true)
+      setError('Network error. Please try again.')
     }
 
     setLoading(false)
@@ -106,8 +107,7 @@ export default function ContactSection() {
               </button>
             </div>
           ) : (
-            <form ref={formRef} onSubmit={handleSubmit} data-netlify="true" name="contact" noValidate>
-              <input type="hidden" name="form-name" value="contact" />
+            <form ref={formRef} onSubmit={handleSubmit} noValidate>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <div className="text-left">
                   <label htmlFor="name" className="font-body text-sm font-medium text-dark-grey/70 mb-1.5 block">
