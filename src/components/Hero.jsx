@@ -5,7 +5,7 @@ const Lightbulb3D = lazy(() => import('./Lightbulb3D'))
 
 function LightbulbFallback() {
   return (
-    <div className="w-64 h-64 md:w-80 md:h-80 mx-auto flex items-center justify-center">
+    <div className="w-64 h-64 md:w-96 md:h-96 mx-auto flex items-center justify-center">
       <div className="w-12 h-12 border-2 border-gold/30 border-t-gold rounded-full animate-spin" />
     </div>
   )

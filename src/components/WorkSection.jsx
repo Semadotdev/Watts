@@ -55,24 +55,26 @@ export default function WorkSection() {
           {projects.map((project, i) => (
             <div
               key={project.title}
-              className="group bg-white border border-gray-200 rounded-2xl overflow-hidden transition-all duration-500 hover:border-gold/50 hover:shadow-lg hover:shadow-gold/5 hover:-translate-y-1"
+              className="space-y-4"
               style={{
                 opacity: isVisible ? 1 : 0,
                 transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
                 transitionDelay: `${i * 150}ms`,
               }}
             >
-              <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center relative overflow-hidden">
-                <svg className="w-12 h-12 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
-                </svg>
-                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all duration-500 flex items-center justify-center">
-                  <span className="text-white font-body text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
-                    View Project
-                  </span>
+              <div className="group bg-white border border-gray-200 rounded-2xl overflow-hidden transition-all duration-500 hover:border-gold/50 hover:shadow-lg hover:shadow-gold/5 hover:-translate-y-1">
+                <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center relative overflow-hidden">
+                  <svg className="w-12 h-12 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
+                  </svg>
+                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/60 transition-all duration-500 flex items-center justify-center">
+                    <span className="text-white font-body text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
+                      View Project
+                    </span>
+                  </div>
                 </div>
               </div>
-              <div className="p-8 text-center md:text-left">
+              <div className="bg-white border border-gray-200 rounded-2xl p-8 text-center md:text-left transition-all duration-500 hover:border-gold/50 hover:shadow-lg hover:shadow-gold/5 hover:-translate-y-1">
                 <span className="font-body text-xs font-semibold tracking-widest uppercase text-gold">
                   {project.category}
                 </span>
