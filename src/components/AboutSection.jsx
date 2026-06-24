@@ -52,11 +52,12 @@ export default function AboutSection() {
           </div>
 
           <div className="relative">
-            <div className="aspect-[4/3] rounded-xl border-2 border-dashed border-primary/10 bg-gray-50 flex flex-col items-center justify-center gap-3">
-              <svg className="w-12 h-12 text-primary/20" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" />
-              </svg>
-              <span className="font-body text-sm text-dark-grey/30">Photo</span>
+            <div className="aspect-[4/3] rounded-xl overflow-hidden">
+              <img
+                src="https://picsum.photos/seed/headshot/600/450"
+                alt="Profile photo"
+                className="w-full h-full object-cover"
+              />
             </div>
 
             <div className="absolute -bottom-4 -right-4 w-24 h-24 border border-gold/20 rounded-full -z-10" />

@@ -46,9 +46,9 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 h-full relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 min-h-[calc(100vh-5rem)]">
           <div className="flex flex-col justify-center items-center md:items-start text-center md:text-left gap-y-6 lg:gap-y-8 py-16 md:py-0">
-            <h1 className="font-headline font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-tight text-white">
-              <span className="inline-block animate-fadeUp" style={{ animationDelay: '0ms' }}>
-                BUILD{' '}
+            <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-tight text-white">
+              <span className="inline-block animate-fadeUp mr-2 md:mr-0" style={{ animationDelay: '0ms' }}>
+                BUILD
               </span>
               <span className="inline-block animate-fadeUp text-gold" style={{ animationDelay: '150ms' }}>
                 SOFTWARE

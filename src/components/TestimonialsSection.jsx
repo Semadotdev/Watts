@@ -7,28 +7,42 @@ const testimonials = [
       'Working with Watts Innovation transformed our outdated platform into a modern, scalable system. The team deeply understood our vision and delivered beyond expectations.',
     author: 'Sarah Chen',
     role: 'CTO, Meridian Health',
+    avatar: 'https://picsum.photos/seed/sarah/100/100',
   },
   {
     quote:
       'From concept to launch, the process was seamless. Clean code, clear communication, and a product that actually works the way it should. Rare to find this level of quality.',
     author: 'Marcus Rivera',
     role: 'Founder, Elevate Studios',
+    avatar: 'https://picsum.photos/seed/marcus/100/100',
   },
   {
     quote:
       'We needed a reliable partner to build our MVP under a tight deadline. They delivered on time, on budget, and the architecture has scaled effortlessly as we grew.',
     author: 'Priya Patel',
     role: 'CEO, NexGen Solutions',
+    avatar: 'https://picsum.photos/seed/priya/100/100',
   },
   {
     quote:
       'What sets them apart is the engineering discipline. Every component is well-architected, well-tested, and built to last. No shortcuts, no technical debt.',
     author: 'James Whitfield',
     role: 'VP of Engineering, Reliable Inc.',
+    avatar: 'https://picsum.photos/seed/james/100/100',
   },
 ]
 
-function Avatar({ name }) {
+function Avatar({ name, src }) {
+  if (src) {
+    return (
+      <img
+        src={src}
+        alt={name}
+        className="w-12 h-12 rounded-full object-cover flex-shrink-0"
+      />
+    )
+  }
+
   const initials = name
     .split(' ')
     .map((n) => n[0])
@@ -125,7 +139,7 @@ export default function TestimonialsSection() {
               &ldquo;
             </span>
             <div className="flex items-center md:items-start gap-4 mb-6">
-              <Avatar name={t.author} />
+              <Avatar name={t.author} src={t.avatar} />
               <div>
                 <p className="font-body text-base md:text-lg text-white/70 leading-relaxed italic">
                   &ldquo;{t.quote}&rdquo;
