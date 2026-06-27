@@ -1,18 +1,21 @@
 import { useState } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
-import AboutSection from './components/AboutSection'
 import NumberMarquee from './components/NumberMarquee'
 import ServicesSection from './components/ServicesSection'
-import WorkSection from './components/WorkSection'
+import WhyWattsSection from './components/WhyWattsSection'
 import ProcessSection from './components/ProcessSection'
-import ContactSection from './components/ContactSection'
+import WorkSection from './components/WorkSection'
+import FeaturedToolsSection from './components/FeaturedToolsSection'
 import TestimonialsSection from './components/TestimonialsSection'
+import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
 import SplashIntro from './components/SplashIntro'
+import ContactModal from './components/ContactModal'
 
 export default function App() {
   const [splashDone, setSplashDone] = useState(false)
+  const [modalType, setModalType] = useState(null)
 
   return (
     <>
@@ -20,18 +23,22 @@ export default function App() {
       <div className="min-h-screen bg-white">
         <Header />
         <main>
-          <Hero />
-        <AboutSection />
-        <NumberMarquee textColor="#205D67" />
-        <ServicesSection />
-        <WorkSection />
-        <NumberMarquee textColor="#FFCB3B" className="bg-primary" />
-        <ProcessSection />
-        <TestimonialsSection />
-        <ContactSection />
-      </main>
-      <Footer />
-    </div>
+          <Hero onOpenModal={setModalType} />
+          <WhyWattsSection onOpenModal={setModalType} />
+          <NumberMarquee textColor="#205D67" />
+          <WorkSection />
+          <FeaturedToolsSection />
+          <ServicesSection />
+          <NumberMarquee textColor="#FFCB3B" className="bg-primary" />
+          <ProcessSection />
+          <TestimonialsSection />
+          <ContactSection onOpenModal={setModalType} />
+        </main>
+        <Footer />
+        {modalType && (
+          <ContactModal type={modalType} onClose={() => setModalType(null)} />
+        )}
+      </div>
     </>
   )
 }

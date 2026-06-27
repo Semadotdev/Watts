@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react'
 import useScrollReveal from '../hooks/useScrollReveal'
 
-export default function ContactSection() {
+export default function ContactSection({ onOpenModal }) {
   const [ref, isVisible] = useScrollReveal()
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -36,16 +36,53 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-20 lg:py-28 bg-gray-50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-        <div
-          ref={ref}
-          className="max-w-2xl mx-auto text-center transition-all duration-700"
-          style={{
-            opacity: isVisible ? 1 : 0,
-            transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
-          }}
-        >
-          <h2 className="font-display font-bold text-3xl lg:text-4xl text-primary mb-6">
-            Let's Build Together
+        <div className="max-w-3xl mx-auto">
+          <div
+            className="bg-primary rounded-2xl p-10 md:p-14 text-center mb-16"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+              transition: 'opacity 0.7s ease-out, transform 0.7s ease-out',
+            }}
+          >
+            <h2 className="font-display font-bold text-2xl md:text-3xl text-white mb-4">
+              Ready to build your next project?
+            </h2>
+            <p className="font-body text-base text-white/70 leading-relaxed mb-8 max-w-lg mx-auto">
+              Need help improving your website or app? Want a smarter digital solution for your business?
+            </p>
+            <div className="flex flex-wrap gap-3 justify-center">
+              <button
+                onClick={() => onOpenModal('consultation')}
+                className="px-8 py-3.5 bg-gold text-primary font-body font-semibold text-sm rounded-full transition-all duration-300 hover:bg-transparent hover:border-2 hover:border-gold hover:text-gold cursor-pointer"
+              >
+                Book a Consultation
+              </button>
+              <button
+                onClick={() => onOpenModal('quote')}
+                className="px-8 py-3.5 border border-white/30 text-white font-body font-semibold text-sm rounded-full transition-all duration-300 hover:bg-white hover:text-primary hover:border-white cursor-pointer"
+              >
+                Request a Quote
+              </button>
+              <a
+                href="#tools"
+                className="px-8 py-3.5 border border-white/30 text-white font-body font-semibold text-sm rounded-full transition-all duration-300 hover:bg-white hover:text-primary hover:border-white"
+              >
+                Try a Tool
+              </a>
+            </div>
+          </div>
+
+          <div
+            ref={ref}
+            className="text-center transition-all duration-700"
+            style={{
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
+            }}
+          >
+          <h2 className="font-display font-bold text-2xl lg:text-3xl text-primary mb-6">
+            Or send me a message
           </h2>
           <div className="w-12 h-0.5 bg-gold mx-auto mb-8" />
 
@@ -186,6 +223,7 @@ export default function ContactSection() {
               </svg>
               San Francisco, CA
             </span>
+          </div>
           </div>
         </div>
       </div>

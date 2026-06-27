@@ -3,33 +3,33 @@ import useScrollReveal from '../hooks/useScrollReveal'
 const steps = [
   {
     number: '01',
-    title: 'Discovery',
+    title: 'Discover',
     description:
       'We dive deep into your vision, goals, and constraints. Understanding your market, users, and technical needs before writing a single line of code.',
   },
   {
     number: '02',
-    title: 'Architecture',
+    title: 'Plan',
     description:
-      'I design a scalable system architecture tailored to your needs — choosing the right stack, data models, and infrastructure from the start.',
+      'I design a scalable architecture and roadmap tailored to your needs — choosing the right stack, data models, and approach from the start.',
   },
   {
     number: '03',
-    title: 'Build',
+    title: 'Design',
     description:
-      'Iterative development in two-week sprints. You see progress constantly, give feedback, and stay in control of the direction at every step.',
+      'UI/UX wireframes, system diagrams, and technical specs that align your vision with a clear, actionable blueprint for development.',
   },
   {
     number: '04',
-    title: 'Launch',
+    title: 'Build',
     description:
-      'Production deployment with CI/CD, monitoring, and performance optimization. Zero-downtime releases and a smooth go-live process.',
+      'Iterative development in focused sprints. You see progress constantly, give feedback, and stay in control of the direction at every step.',
   },
   {
     number: '05',
-    title: 'Evolve',
+    title: 'Launch & Support',
     description:
-      'Post-launch support, analytics-driven improvements, and scaling your product as your user base grows. Your software evolves with your business.',
+      'Production deployment with CI/CD, monitoring, and performance optimization. Ongoing support keeps your software evolving with your business.',
   },
 ]
 

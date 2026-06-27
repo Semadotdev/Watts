@@ -60,6 +60,19 @@ export default function TestimonialsSection() {
   const [isPaused, setIsPaused] = useState(false)
   const [sectionRef, sectionVisible] = useScrollReveal()
   const [cardVisible, setCardVisible] = useState(true)
+  const [expanded, setExpanded] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
+
+  useEffect(() => {
+    setExpanded(false)
+  }, [current])
 
   const next = useCallback(() => {
     setCardVisible(false)
@@ -84,6 +97,9 @@ export default function TestimonialsSection() {
   }, [isPaused, next])
 
   const t = testimonials[current]
+
+  const truncated = !expanded && isMobile && t.quote.length > 120
+  const displayQuote = truncated ? t.quote.slice(0, 120) + '...' : t.quote
 
   return (
     <section id="testimonials" className="py-20 lg:py-28 bg-primary">
@@ -128,7 +144,9 @@ export default function TestimonialsSection() {
           </button>
 
           <div
-            className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-8 md:p-10 shadow-sm h-[300px] flex flex-col justify-center relative overflow-hidden text-center md:text-left"
+            className={`bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-8 md:p-10 shadow-sm flex flex-col justify-center relative overflow-hidden text-center md:text-left ${
+              expanded ? 'h-auto' : 'h-[300px]'
+            }`}
             style={{
               opacity: cardVisible ? 1 : 0,
               transform: cardVisible ? 'translateY(0)' : 'translateY(10px)',
@@ -142,8 +160,16 @@ export default function TestimonialsSection() {
               <Avatar name={t.author} src={t.avatar} />
               <div>
                 <p className="font-body text-base md:text-lg text-white/70 leading-relaxed italic">
-                  &ldquo;{t.quote}&rdquo;
+                  &ldquo;{displayQuote}&rdquo;
                 </p>
+                {truncated && (
+                  <button
+                    onClick={() => setExpanded(true)}
+                    className="text-gold text-sm font-semibold mt-2 hover:text-gold/80 transition-colors"
+                  >
+                    See More
+                  </button>
+                )}
               </div>
             </div>
             <div className="border-t border-white/10 pt-4 mx-auto md:ml-16">

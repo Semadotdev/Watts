@@ -11,7 +11,7 @@ function LightbulbFallback() {
   )
 }
 
-export default function Hero() {
+export default function Hero({ onOpenModal }) {
   const { handlers, maskStyle } = useGridGlow()
 
   return (
@@ -47,9 +47,9 @@ export default function Hero() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 min-h-[calc(100vh-5rem)]">
           <div className="flex flex-col justify-center items-center md:items-start text-center md:text-left gap-y-6 lg:gap-y-8 py-16 md:py-0">
             <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-tight text-white">
-              <span className="inline-block animate-fadeUp mr-2 md:mr-0" style={{ animationDelay: '0ms' }}>
+              <span className="inline-block animate-fadeUp" style={{ animationDelay: '0ms' }}>
                 BUILD
-              </span>
+              </span>{' '}
               <span className="inline-block animate-fadeUp text-gold" style={{ animationDelay: '150ms' }}>
                 SOFTWARE
               </span>
@@ -61,23 +61,39 @@ export default function Hero() {
 
             <p
               className="font-body text-base lg:text-lg text-white/80 max-w-lg leading-relaxed animate-fadeUp"
-              style={{ animationDelay: '450ms' }}
-            >
-              I partner with startups and growing businesses to architect and build
-              custom software solutions that drive real growth — from concept to
-              deployment and beyond.
-            </p>
-
-            <a
-              href="#contact"
-              className="inline-block mt-2 px-8 py-3.5 bg-cta-teal text-white font-body font-semibold text-base rounded-full transition-all duration-300 hover:bg-transparent hover:border-2 hover:border-gold hover:text-gold animate-fadeUp"
               style={{ animationDelay: '600ms' }}
             >
-              Work With Me
-            </a>
+              Watts Innovation helps businesses and founders design, build, and improve
+              custom digital solutions — from websites and client-facing platforms to
+              audits, optimization, and ongoing support.
+            </p>
+
+            <div
+              className="flex flex-wrap gap-3 justify-center md:justify-start animate-fadeUp"
+              style={{ animationDelay: '750ms' }}
+            >
+              <button
+                onClick={() => onOpenModal('consultation')}
+                className="px-6 py-3 bg-gold text-primary font-body font-semibold text-sm rounded-full transition-all duration-300 hover:bg-transparent hover:border-2 hover:border-gold hover:text-gold cursor-pointer"
+              >
+                Book a Consultation
+              </button>
+              <a
+                href="#services"
+                className="px-6 py-3 border border-white/30 text-white font-body font-semibold text-sm rounded-full transition-all duration-300 hover:bg-white hover:text-primary hover:border-white"
+              >
+                View Services
+              </a>
+              <button
+                onClick={() => onOpenModal('quote')}
+                className="px-6 py-3 border border-white/20 text-white/70 font-body font-semibold text-sm rounded-full transition-all duration-300 hover:border-gold hover:text-gold cursor-pointer"
+              >
+                Request a Quote
+              </button>
+            </div>
           </div>
 
-          <div className="relative flex items-center justify-center py-16 md:py-0 animate-fadeUp" style={{ animationDelay: '750ms' }}>
+          <div className="relative flex items-center justify-center py-16 md:py-0 animate-fadeUp" style={{ animationDelay: '900ms' }}>
             <div
               className="absolute w-96 h-96 md:w-[32rem] md:h-[32rem] rounded-full pointer-events-none"
               style={{

@@ -75,7 +75,7 @@ export default function WorkSection() {
 
   return (
     <>
-    <section id="work" className="py-20 lg:py-22 bg-primary">
+    <section id="work" className="py-20 lg:py-22 relative" style={{ background: 'linear-gradient(to bottom, #ffffff, #102120)' }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div
           ref={ref}
@@ -85,7 +85,7 @@ export default function WorkSection() {
             transform: isVisible ? 'translateY(0)' : 'translateY(30px)',
           }}
         >
-          <h2 className="font-display font-bold text-3xl lg:text-4xl text-white mb-6">
+          <h2 className="font-display font-bold text-3xl lg:text-4xl text-primary mb-6">
             Featured Work
           </h2>
           <div className="w-12 h-0.5 bg-gold mx-auto" />
@@ -124,6 +124,12 @@ export default function WorkSection() {
                     <span className="text-white font-body text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-2 group-hover:translate-y-0">
                       View Project
                     </span>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 px-5 py-3 bg-white/80 backdrop-blur-sm flex items-center justify-between md:hidden">
+                    <span className="font-body text-sm text-gold font-semibold">View Details</span>
+                    <svg className="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                    </svg>
                   </div>
                 </div>
               </button>

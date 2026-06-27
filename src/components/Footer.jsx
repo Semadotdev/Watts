@@ -1,5 +1,28 @@
 import { useState, useEffect } from 'react'
 
+const navLinks = [
+  { label: 'About', href: '#about' },
+  { label: 'Services', href: '#services' },
+  { label: 'Work', href: '#work' },
+  { label: 'Process', href: '#process' },
+  { label: 'Contact', href: '#contact' },
+]
+
+const servicesLinks = [
+  { label: 'Web Development', href: '#services' },
+  { label: 'Mobile Applications', href: '#services' },
+  { label: 'Cloud Architecture', href: '#services' },
+  { label: 'UI/UX Engineering', href: '#services' },
+]
+
+const techList = [
+  'React / Next.js',
+  'Node.js / Go',
+  'PostgreSQL / Redis',
+  'AWS / GCP',
+  'Kubernetes',
+]
+
 const socialLinks = [
   {
     label: 'GitHub',
@@ -58,15 +81,97 @@ export default function Footer() {
         </svg>
       </button>
 
-      <footer className="bg-primary/95 border-t border-white/5 py-8">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-baseline gap-0">
-              <span className="font-display font-bold text-lg tracking-widest text-white/60">
+      <footer className="bg-primary border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-20">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-10 md:gap-8">
+
+            <div className="col-span-2 md:col-span-1">
+              <span className="font-display font-bold text-lg tracking-widest text-white">
                 WATTS INNOVATION
               </span>
+              <p className="font-body text-sm text-white/50 mt-4 leading-relaxed">
+                Build software that scales.
+              </p>
             </div>
 
+            <div>
+              <h4 className="font-display text-xs font-semibold tracking-widest uppercase text-gold mb-5">
+                Navigate
+              </h4>
+              <ul className="space-y-3">
+                {navLinks.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="font-body text-sm text-white/50 hover:text-gold transition-colors duration-300"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-display text-xs font-semibold tracking-widest uppercase text-gold mb-5">
+                Services
+              </h4>
+              <ul className="space-y-3">
+                {servicesLinks.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="font-body text-sm text-white/50 hover:text-gold transition-colors duration-300"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-display text-xs font-semibold tracking-widest uppercase text-gold mb-5">
+                Technologies
+              </h4>
+              <ul className="space-y-3">
+                {techList.map((tech) => (
+                  <li key={tech}>
+                    <span className="font-body text-sm text-white/50">
+                      {tech}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="col-span-2 md:col-span-1">
+              <h4 className="font-display text-xs font-semibold tracking-widest uppercase text-gold mb-5">
+                Contact
+              </h4>
+              <ul className="space-y-3">
+                <li>
+                  <a
+                    href="mailto:WattsInnovation@gmail.com"
+                    className="font-body text-sm text-white/50 hover:text-gold transition-colors duration-300"
+                  >
+                    WattsInnovation@gmail.com
+                  </a>
+                </li>
+                <li>
+                  <span className="font-body text-sm text-white/50">
+                    San Francisco, CA
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <p className="font-body text-sm text-white/30">
+              &copy; {year} Watts Innovation. All rights reserved.
+            </p>
             <div className="flex items-center gap-4">
               {socialLinks.map((link) => (
                 <a
@@ -79,10 +184,6 @@ export default function Footer() {
                 </a>
               ))}
             </div>
-
-            <p className="font-body text-sm text-white/30">
-              &copy; {year} Watts Innovation. All rights reserved.
-            </p>
           </div>
         </div>
       </footer>
